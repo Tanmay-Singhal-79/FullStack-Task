@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopKart Practice Listing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0056b3;
+    }
+
+    .search-box {
+      width: 40%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .nav-links span {
+      margin-left: 15px;
+      cursor: pointer;
+    }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 15px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      height: fit-content;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .filter-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-apply {
+      width: 100%;
+      padding: 8px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .content-area {
+      flex: 1;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .badge-sale { color: red; }
+    .badge-new { color: green; }
+
+    .img-box {
+      height: 120px;
+      background-color: #eee;
+      margin: 15px 0;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .price-box {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 13px;
+      margin-left: 5px;
+    }
+
+    .rating {
+      font-size: 13px;
+      color: #ff9800;
+      margin-bottom: 15px;
+    }
+
+    .btn-cart {
+      width: 100%;
+      padding: 8px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: auto;
+    }
+
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .search-box { display: none; }
+      .product-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">ShopKart</div>
+    <input type="text" class="search-box" placeholder="Search for products...">
+    <div class="nav-links">
+      <span>🛒 Cart</span>
+      <span>👤 User</span>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    
+    <aside class="sidebar">
+      <div class="filter-group">
+        <h3>Category</h3>
+        <label><input type="checkbox" checked> Laptops</label>
+        <label><input type="checkbox"> Desktops</label>
+        <label><input type="checkbox"> Tablets</label>
+      </div>
+      <div class="filter-group">
+        <h3>Price</h3>
+        <label><input type="radio" name="p" checked> ₹25,000 - ₹50,000</label>
+        <label><input type="radio" name="p"> ₹50,000+</label>
+      </div>
+      <button class="btn-apply">Apply Filters</button>
+    </aside>
+
+    <main class="content-area">
+      <section class="product-grid">
+        
+        <div class="product-card">
+          <div class="card-header">
+            <span class="badge-sale">SALE</span>
+            <span>❤️</span>
+          </div>
+          <div class="img-box"><img src="https://picsum.photos/200/100" alt=""></div>
+          <div class="card-body">
+            <h2 class="product-title">Dell Inspiron 15</h2>
+            <div class="price-box">
+              <span class="price">₹45,990</span>
+              <span class="old-price">₹66,990</span>
+            </div>
+            <div class="rating">⭐ 4.5 (1.2k)</div>
+            <button class="btn-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-header">
+            <span class="badge-new">NEW</span>
+            <span>❤️</span>
+          </div>
+          <div class="img-box"><img src="https://picsum.photos/200/100" alt=""></div>
+          <div class="card-body">
+            <h2 class="product-title">HP Pavilion</h2>
+            <div class="price-box">
+              <span class="price">₹52,990</span>
+              <span class="old-price">₹68,990</span>
+            </div>
+            <div class="rating">⭐ 4.3 (812)</div>
+            <button class="btn-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-header">
+            <span></span>
+            <span>❤️</span>
+          </div>
+          <div class="img-box"><img src="https://picsum.photos/200/100" alt=""></div>
+          <div class="card-body">
+            <h2 class="product-title">Lenovo IdeaPad</h2>
+            <div class="price-box">
+              <span class="price">₹38,990</span>
+            </div>
+            <div class="rating">⭐ 4.2 (654)</div>
+            <button class="btn-cart">Add to Cart</button>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>
